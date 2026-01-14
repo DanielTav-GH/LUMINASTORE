@@ -1,0 +1,224 @@
+@charset "UTF-8";
+/* versao mobile first */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+h1 {
+    font-size: 1em;
+}
+
+html {
+    height: 100vh;
+}
+
+body {
+    background-color: rgb(136, 136, 136);
+}
+
+header{
+    background-color: #bfb7aa;
+    height: 70px;
+}
+
+/* --- 1. ESTILOS PADRÃO (MOBILE) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+#menu-toggle { display: none; } /* Esconde o checkbox */
+
+.hamburger {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* O Menu começa escondido e vertical no Mobile */
+.menu {
+    display: none; 
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    background: #333;
+    list-style: none;
+}
+
+/* Quando clica no hambúrguer */
+#menu-toggle:checked ~ .menu {
+    display: flex;
+}
+
+.menu li a {
+    display: block;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #292929;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+main {
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+}
+
+#imagens-principais-container {
+    display: flex;
+    align-items: center;
+}
+
+#foto-apresentacao {
+    width: 130px;
+    margin: auto;
+}
+
+/* --- MOBILE (Padrão) --- */
+#barra-de-beneficios-container {
+    display: flex;
+    overflow-x: auto;          /* Ativa o scroll horizontal */
+    scroll-snap-type: x mandatory; /* Faz os itens "travarem" na posição ao arrastar */
+    gap: 30px;
+    padding: 16px;
+    background-color: #333;
+    color: white;
+    /* Esconde a barra de rolagem visual para um look mais limpo */
+    scrollbar-width: none;     /* Firefox */
+}
+
+#barra-de-beneficios-container::-webkit-scrollbar {
+    display: none;             /* Chrome, Safari e Edge */
+}
+
+.barra-de-beneficios {
+    flex: 0 0 70%;             /* Cada item ocupa 70% da largura da tela */
+    scroll-snap-align: center;  /* Centraliza o item ao parar de arrastar */
+    text-align: center;
+}
+
+/* --- DESKTOP (Mínimo de 1024px) --- */
+@media (min-width: 1024px) {
+    #barra-de-beneficios-container {
+        overflow-x: visible;   /* Remove o scroll no desktop */
+        justify-content: space-around;
+        padding: 40px 5%;
+    }
+
+    .barra-de-beneficios {
+        flex: 1;               /* Distribui igualmente sem largura fixa */
+    }
+}
+
+#encontre-suas-roupas h2 { 
+    font-size: 1.2em;
+    padding: 20px;
+}
+
+/* --- MOBILE (Padrão) --- */
+#imagens-mulher-container {
+    display: flex;
+    overflow-x: auto;         /* Permite o deslize horizontal */
+    scroll-snap-type: x mandatory; /* Faz a imagem "travar" na tela */
+    gap: 0px;                /* Espaço entre as fotos */
+    padding: 0px 0px;
+    scrollbar-width: none;    /* Esconde a barra no Firefox */
+}
+
+#imagens-mulher-container::-webkit-scrollbar {
+    display: none;            /* Esconde a barra no Chrome/Safari */
+}
+
+.foto-mulher {
+    flex: 0 0 85%;            /* Cada foto ocupa 85% da largura da tela */
+    scroll-snap-align: center; /* Centraliza a foto ao arrastar */
+    width: 100%;
+    height: 450px;            /* Altura fixa para manter o padrão */
+    object-fit: cover;        /* Faz a foto preencher o espaço sem distorcer */
+    border-radius: 0px;      /* Deixa os cantos arredondados e modernos */
+}
+
+/* --- DESKTOP (Mínimo de 1024px) --- */
+@media (min-width: 1024px) {
+    #imagens-mulher-container {
+        overflow-x: visible;  /* No PC, as fotos ficam paradas */
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .foto-mulher {
+        flex: 1;              /* As 3 fotos dividem o espaço igualmente */
+        max-width: 350px;     /* Impede que fiquem largas demais */
+        height: 550px;        /* Aumenta a altura no monitor maior */
+    }
+}
+
+.foto-mulher {
+    width: 100%;
+}
+
+/* --- MOBILE (Padrão) --- */
+footer {
+    background-color: #1a1a1a; /* Cinza quase preto */
+    color: #ffffff;
+    padding: 40px 20px;
+    margin-top: 50px; /* Afasta o rodapé do conteúdo acima */
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column; /* No celular, uma coluna embaixo da outra */
+    gap: 30px;
+    text-align: center;
+}
+
+.footer-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px; /* Letras levemente afastadas para um ar luxuoso */
+}
+
+.footer-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #d4af37; /* Um tom dourado ou cor de destaque da sua marca */
+}
+
+.footer-box p, .footer-box a {
+    font-size: 0.9rem;
+    color: #ccc;
+    text-decoration: none;
+    display: block; /* Faz os links ficarem um embaixo do outro */
+    margin-bottom: 8px;
+}
+
+.footer-box a:hover {
+    color: #fff; /* Brilha ao passar o mouse */
+}
+
+/* --- DESKTOP (Mínimo de 768px) --- */
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row; /* Transforma em colunas lado a lado */
+        justify-content: space-around;
+        align-items: flex-start;
+        text-align: left; /* Alinha o texto à esquerda no PC */
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+}
